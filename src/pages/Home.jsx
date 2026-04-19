@@ -38,7 +38,7 @@ export default function Home({ onNavigate, fragments }) {
               Lire l'avant-propos
             </button>
             <button 
-              onClick={() => onNavigate('fragment', 0, 0)}
+              onClick={() => onNavigate('fragment', 0)}
               style={{
                 padding: '12px 30px',
                 fontSize: '14px',
@@ -62,7 +62,7 @@ export default function Home({ onNavigate, fragments }) {
               <li key={fragment.id} style={{ marginBottom: '30px' }}>
                 <a 
                   href="#"
-                  onClick={(e) => { e.preventDefault(); onNavigate('fragment', fragIdx, 0); }}
+                  onClick={(e) => { e.preventDefault(); onNavigate('fragment', fragIdx); }}
                   style={{
                     color: '#5A4A32',
                     textDecoration: 'none',
@@ -76,25 +76,19 @@ export default function Home({ onNavigate, fragments }) {
                   onMouseOver={(e) => e.target.style.borderBottom = '2px solid #5A4A32'}
                   onMouseOut={(e) => e.target.style.borderBottom = '2px solid transparent'}
                 >
-                  {fragment.title}
+                  {fragIdx + 1}. {fragment.title}
                 </a>
                 <ul style={{ listStyle: 'none', marginLeft: '20px', fontSize: '14px' }}>
                   {fragment.sections.map((section, secIdx) => (
                     <li key={section.id} style={{ marginBottom: '8px' }}>
-                      <a 
-                        href="#"
-                        onClick={(e) => { e.preventDefault(); onNavigate('fragment', fragIdx, secIdx); }}
+                      <span 
                         style={{
                           color: '#8B7355',
-                          textDecoration: 'none',
-                          borderBottom: '1px solid transparent',
-                          transition: 'color 0.3s, border-color 0.3s'
+                          cursor: 'default'
                         }}
-                        onMouseOver={(e) => { e.target.style.color = '#5A4A32'; e.target.style.borderBottom = '1px solid #5A4A32'; }}
-                        onMouseOut={(e) => { e.target.style.color = '#8B7355'; e.target.style.borderBottom = '1px solid transparent'; }}
                       >
                         {secIdx + 1}. {section.title}
-                      </a>
+                      </span>
                     </li>
                   ))}
                 </ul>

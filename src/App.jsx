@@ -10,28 +10,25 @@ import { fragments } from './data/fragments'
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [currentFragment, setCurrentFragment] = useState(null)
-  const [currentSection, setCurrentSection] = useState(null)
 
-  const handleNavigate = (page, fragmentId = null, sectionId = null) => {
+  const handleNavigate = (page, fragmentId = null) => {
     setCurrentPage(page)
     if (fragmentId !== null) {
       setCurrentFragment(fragmentId)
-      setCurrentSection(sectionId !== null ? sectionId : 0)
     }
     window.scrollTo(0, 0)
   }
 
-  const handleNextSection = () => {
-    const currentFrag = fragments[currentFragment]
-    if (currentSection < currentFrag.sections.length - 1) {
-      setCurrentSection(currentSection + 1)
+  const handleNextFragment = () => {
+    if (currentFragment < fragments.length - 1) {
+      setCurrentFragment(currentFragment + 1)
       window.scrollTo(0, 0)
     }
   }
 
-  const handlePrevSection = () => {
-    if (currentSection > 0) {
-      setCurrentSection(currentSection - 1)
+  const handlePrevFragment = () => {
+    if (currentFragment > 0) {
+      setCurrentFragment(currentFragment - 1)
       window.scrollTo(0, 0)
     }
   }
@@ -43,7 +40,6 @@ function App() {
         onNavigate={handleNavigate}
         fragments={fragments}
         currentFragment={currentFragment}
-        currentSection={currentSection}
       />
       <main>
         {currentPage === 'home' && <Home onNavigate={handleNavigate} fragments={fragments} />}
@@ -52,11 +48,9 @@ function App() {
           <Fragment 
             fragment={fragments[currentFragment]}
             fragmentIndex={currentFragment}
-            section={fragments[currentFragment].sections[currentSection]}
-            sectionIndex={currentSection}
-            totalSections={fragments[currentFragment].sections.length}
-            onNextSection={handleNextSection}
-            onPrevSection={handlePrevSection}
+            fragments={fragments}
+            onNextFragment={handleNextFragment}
+            onPrevFragment={handlePrevFragment}
             onNavigate={handleNavigate}
           />
         )}

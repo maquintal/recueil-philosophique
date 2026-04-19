@@ -1,17 +1,12 @@
 import { useState } from 'react'
 import './Navigation.css'
 
-export default function Navigation({ currentPage, onNavigate, fragments, currentFragment, currentSection }) {
+export default function Navigation({ currentPage, onNavigate, fragments, currentFragment }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [expandedFragment, setExpandedFragment] = useState(null)
 
-  const handleNavigate = (page, fragmentId = null, sectionId = null) => {
-    onNavigate(page, fragmentId, sectionId)
+  const handleNavigate = (page, fragmentId = null) => {
+    onNavigate(page, fragmentId)
     setIsSidebarOpen(false)
-  }
-
-  const toggleFragment = (fragmentId) => {
-    setExpandedFragment(expandedFragment === fragmentId ? null : fragmentId)
   }
 
   return (
@@ -49,38 +44,18 @@ export default function Navigation({ currentPage, onNavigate, fragments, current
           <li className="menu-divider"></li>
           
           {fragments.map((fragment, fragIdx) => (
-            <li key={fragment.id} className="fragment-item">
+            <li key={fragment.id}>
               <a 
                 href="#"
                 onClick={(e) => { 
                   e.preventDefault(); 
-                  toggleFragment(fragment.id)
+                  handleNavigate('fragment', fragIdx)
                 }}
-                className={`nav-link fragment-header ${currentFragment === fragIdx ? 'active' : ''}`}
+                className={`nav-link fragment-link ${currentFragment === fragIdx ? 'active' : ''}`}
               >
-                <span className="expand-icon">{expandedFragment === fragment.id ? '▼' : '▶'}</span>
-                <span>{fragment.title}</span>
+                <span className="fragment-number">{fragIdx + 1}</span>
+                <span className="fragment-title">{fragment.title}</span>
               </a>
-              
-              {expandedFragment === fragment.id && (
-                <ul className="section-submenu">
-                  {fragment.sections.map((section, secIdx) => (
-                    <li key={section.id}>
-                      <a 
-                        href="#"
-                        onClick={(e) => { 
-                          e.preventDefault(); 
-                          handleNavigate('fragment', fragIdx, secIdx)
-                        }}
-                        className={`nav-link section-link ${currentFragment === fragIdx && currentSection === secIdx ? 'active' : ''}`}
-                      >
-                        <span className="section-number">{secIdx + 1}</span>
-                        <span className="section-title">{section.title}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
           ))}
         </ul>
