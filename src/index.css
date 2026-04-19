@@ -1,0 +1,257 @@
+/* Design inspiré du document Word - Couleurs marron/beige */
+
+:root {
+  --primary-brown: #3A2E1E;
+  --light-brown: #5A4A32;
+  --beige: #7A6A52;
+  --light-beige: #B0A090;
+  --off-white: #FAF8F3;
+  --accent: #8B7355;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', 'Garamond', serif;
+  background-color: var(--off-white);
+  color: var(--primary-brown);
+  line-height: 1.8;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Navigation */
+nav {
+  background-color: var(--primary-brown);
+  color: var(--off-white);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--off-white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+}
+
+nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Header/Cover */
+.cover {
+  background-color: var(--off-white);
+  padding: 120px 40px;
+  text-align: center;
+  border-bottom: 3px solid var(--primary-brown);
+  margin-bottom: 80px;
+}
+
+.cover h1 {
+  font-size: 52px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: var(--primary-brown);
+  letter-spacing: 2px;
+}
+
+.cover .subtitle {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--light-brown);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.cover .author {
+  font-size: 14px;
+  color: var(--beige);
+  margin-top: 30px;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 60px 40px;
+}
+
+section {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  color: var(--primary-brown);
+  border-bottom: 2px solid var(--light-brown);
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 40px 0 25px;
+  color: var(--light-brown);
+  margin-top: 50px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Typography */
+.subtitle-small {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--beige);
+  margin: 30px 0;
+  text-align: center;
+}
+
+.divider {
+  text-align: center;
+  font-size: 20px;
+  color: var(--beige);
+  margin: 60px 0;
+  letter-spacing: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid var(--light-beige);
+}
+
+.nav-links a {
+  color: var(--light-brown);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-brown);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-brown);
+  color: var(--off-white);
+  text-align: center;
+  padding: 40px;
+  font-size: 12px;
+  margin-top: auto;
+  border-top: 3px solid var(--light-brown);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  nav ul {
+    padding: 0 20px;
+    gap: 15px;
+  }
+
+  main {
+    padding: 40px 20px;
+  }
+
+  .cover {
+    padding: 60px 20px;
+  }
+
+  .cover h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Accessibility */
+a {
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+}
+
+/* Print styles */
+@media print {
+  nav, footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 40px;
+  }
+}
