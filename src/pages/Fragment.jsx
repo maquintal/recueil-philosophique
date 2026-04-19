@@ -1,23 +1,15 @@
-import { fragmentContent } from '../data/fragments'
-
-export default function Fragment({ fragment, fragments, currentIndex, onNext, onPrev, onNavigate }) {
-  const content = fragmentContent[fragment.url]
-
+export default function Fragment({ fragment, fragmentIndex, section, sectionIndex, totalSections, onNextSection, onPrevSection, onNavigate }) {
   return (
     <section>
       <div className="container">
         <h2>{fragment.title}</h2>
+        <h3>{section.title}</h3>
 
-        {content && content.map((section, idx) => (
-          <div key={idx}>
-            {section.subtitle && <h3>{section.subtitle}</h3>}
-            {section.paragraphs.map((para, pIdx) => (
-              <p key={pIdx}>{para}</p>
-            ))}
-          </div>
+        {section.paragraphs.map((para, idx) => (
+          <p key={idx}>{para}</p>
         ))}
 
-        {currentIndex === fragments.length - 1 && (
+        {sectionIndex === totalSections - 1 && (
           <div style={{ textAlign: 'center', marginTop: '60px', fontSize: '20px', color: '#7A6A52' }}>
             <p>✦  ✦  ✦</p>
           </div>
@@ -25,24 +17,24 @@ export default function Fragment({ fragment, fragments, currentIndex, onNext, on
 
         <div className="nav-links" style={{ marginTop: '80px' }}>
           <div>
-            {currentIndex > 0 && (
-              <a href="#" onClick={(e) => { e.preventDefault(); onPrev(); }}>
-                ← Précédent: {fragments[currentIndex - 1].title}
+            {sectionIndex > 0 && (
+              <a href="#" onClick={(e) => { e.preventDefault(); onPrevSection(); }}>
+                ← Précédent: {fragment.sections[sectionIndex - 1].title}
               </a>
             )}
-            {currentIndex === 0 && (
+            {sectionIndex === 0 && (
               <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('foreword'); }}>
                 ← Avant-propos
               </a>
             )}
           </div>
           <div>
-            {currentIndex < fragments.length - 1 && (
-              <a href="#" onClick={(e) => { e.preventDefault(); onNext(); }}>
-                Suivant: {fragments[currentIndex + 1].title} →
+            {sectionIndex < totalSections - 1 && (
+              <a href="#" onClick={(e) => { e.preventDefault(); onNextSection(); }}>
+                Suivant: {fragment.sections[sectionIndex + 1].title} →
               </a>
             )}
-            {currentIndex === fragments.length - 1 && (
+            {sectionIndex === totalSections - 1 && (
               <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
                 Retour à l'accueil →
               </a>
@@ -51,5 +43,7 @@ export default function Fragment({ fragment, fragments, currentIndex, onNext, on
         </div>
       </div>
     </section>
+  )
+}
   )
 }

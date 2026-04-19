@@ -1,5 +1,3 @@
-import { fragmentContent } from '../data/fragments'
-
 export default function Home({ onNavigate, fragments }) {
   return (
     <>
@@ -40,7 +38,7 @@ export default function Home({ onNavigate, fragments }) {
               Lire l'avant-propos
             </button>
             <button 
-              onClick={() => onNavigate('fragment', 0)}
+              onClick={() => onNavigate('fragment', 0, 0)}
               style={{
                 padding: '12px 30px',
                 fontSize: '14px',
@@ -60,23 +58,46 @@ export default function Home({ onNavigate, fragments }) {
 
           <h3 style={{ marginTop: '80px', fontSize: '18px' }}>Fragments disponibles</h3>
           <ul style={{ listStyle: 'none', marginTop: '30px' }}>
-            {fragments.map((frag, idx) => (
-              <li key={frag.id} style={{ marginBottom: '15px' }}>
+            {fragments.map((fragment, fragIdx) => (
+              <li key={fragment.id} style={{ marginBottom: '30px' }}>
                 <a 
                   href="#"
-                  onClick={(e) => { e.preventDefault(); onNavigate('fragment', idx); }}
+                  onClick={(e) => { e.preventDefault(); onNavigate('fragment', fragIdx, 0); }}
                   style={{
                     color: '#5A4A32',
                     textDecoration: 'none',
-                    fontSize: '15px',
-                    borderBottom: '1px solid transparent',
-                    transition: 'border-color 0.3s'
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    borderBottom: '2px solid transparent',
+                    transition: 'border-color 0.3s',
+                    display: 'block',
+                    marginBottom: '10px'
                   }}
-                  onMouseOver={(e) => e.target.style.borderBottom = '1px solid #5A4A32'}
-                  onMouseOut={(e) => e.target.style.borderBottom = '1px solid transparent'}
+                  onMouseOver={(e) => e.target.style.borderBottom = '2px solid #5A4A32'}
+                  onMouseOut={(e) => e.target.style.borderBottom = '2px solid transparent'}
                 >
-                  {idx + 1}. {frag.title}
+                  {fragment.title}
                 </a>
+                <ul style={{ listStyle: 'none', marginLeft: '20px', fontSize: '14px' }}>
+                  {fragment.sections.map((section, secIdx) => (
+                    <li key={section.id} style={{ marginBottom: '8px' }}>
+                      <a 
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); onNavigate('fragment', fragIdx, secIdx); }}
+                        style={{
+                          color: '#8B7355',
+                          textDecoration: 'none',
+                          borderBottom: '1px solid transparent',
+                          transition: 'color 0.3s, border-color 0.3s'
+                        }}
+                        onMouseOver={(e) => { e.target.style.color = '#5A4A32'; e.target.style.borderBottom = '1px solid #5A4A32'; }}
+                        onMouseOut={(e) => { e.target.style.color = '#8B7355'; e.target.style.borderBottom = '1px solid transparent'; }}
+                      >
+                        {secIdx + 1}. {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>

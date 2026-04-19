@@ -6,4 +6,11 @@
 
 main {
   flex: 1;
+  margin-left: 280px;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+  }
 }
