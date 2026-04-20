@@ -81,5 +81,57 @@ export const fragments = [
         ]
       }
     ]
+  },
+  {
+    id: 2,
+    title: "Du capitalisme et de ses contradictions",
+    url: "capitalisme-contradictions",
+    sections: [
+      {
+        id: 1,
+        title: "L'anthropologie du capitalisme",
+        url: "anthropologie",
+        paragraphs: [
+          "Le capitalisme ne peut être compris uniquement comme un système économique. Il constitue avant tout une question anthropologique majeure : révèle-t-il une vérité profonde sur la nature humaine, ou bien n'est-il qu'une construction historique ayant poussé certaines de nos tendances jusqu'à l'extrême ? Cette interrogation rejoint directement les intuitions de Friedrich Nietzsche, pour qui les systèmes de valeurs ne sont jamais neutres, mais toujours le produit de pulsions humaines — désir, domination, volonté de puissance. Interroger le capitalisme, c'est donc moins condamner un mécanisme que questionner ce que l'humanité a choisi de valoriser.",
+          "À la fin du Moyen Âge, l'ordre féodal repose sur un principe de transcendance. Dieu structure la hiérarchie sociale, donne un sens à la souffrance et impose des limites morales claires. Certes, les hommes doutaient déjà, mais le rejet de Dieu posait un problème fondamental : par quoi remplacer un principe qui ordonne le monde ? Le féodalisme ne s'effondre pas tant pour son injustice — largement acceptée — que parce qu'il devient incapable d'expliquer un monde que les découvertes scientifiques rendent de plus en plus intelligible."
+        ]
+      },
+      {
+        id: 2,
+        title: "La rupture historique",
+        url: "rupture-historique",
+        paragraphs: [
+          "Les XVIᵉ et XVIIᵉ siècles apportent alors une alternative puissante : la science. Elle ne nie pas seulement Dieu, elle rassure l'homme en lui offrant une nouvelle stabilité. Là où la religion promettait le salut, la science promet le progrès. Le monde devient calculable, maîtrisable, transformable. L'homme peut désormais imaginer un avenir sans transcendance, ouvrant la voie au siècle des Lumières et à la Révolution française. Cette rupture n'est pas seulement politique ; elle marque la naissance d'un monde où la raison humaine devient le principe organisateur suprême.",
+          "Cependant, cette liberté nouvelle engendre une ambiguïté profonde. En se libérant des cadres moraux religieux, la société se retrouve sans équivalent éthique capable de contenir les pulsions humaines. C'est dans ce vide que s'insère le libéralisme économique. Présenté comme une force d'émancipation, il se révèle surtout opportuniste : il ne cherche pas à corriger les faiblesses humaines, mais à les exploiter. Les libéraux ne sont pas des moralistes ; ils sont des stratèges du réel. Ils comprennent que les vices — ambition, envie, désir, cupidité — sont infiniment plus productifs que la vertu."
+        ]
+      },
+      {
+        id: 3,
+        title: "L'exploitation des vices",
+        url: "exploitation-vices",
+        paragraphs: [
+          "Cette logique trouve son expression la plus crue chez Bernard de Mandeville, qui affirme que la prospérité collective repose sur les vices individuels. Cette thèse, bien que cynique, possède une cohérence interne redoutable. Une société vertueuse serait économiquement inefficace ; une société dominée par les désirs serait florissante. Pourtant, cette rationalité est fondamentalement dangereuse. Mettre les vices humains au centre d'un système, ce n'est pas les reconnaître, c'est les institutionnaliser.",
+          "À ce stade, il est crucial de souligner que des penseurs comme Jean-Jacques Rousseau et Arthur Schopenhauer ne célèbrent en rien cette évolution. Bien au contraire, ils en perçoivent très tôt les conséquences destructrices. Rousseau voit dans le développement des désirs artificiels la source de l'aliénation moderne : l'homme cesse d'être libre dès lors qu'il se définit par le regard et la comparaison. Schopenhauer, quant à lui, identifie le désir comme une souffrance structurelle : l'homme n'est jamais heureux lorsqu'il possède, mais seulement lorsqu'il espère, condamné à une oscillation perpétuelle entre manque et ennui. Ces penseurs ne sont pas des contributeurs au capitalisme ; ils en sont les critiques les plus lucides.",
+          "Après la révolution industrielle, le capitalisme amplifie mécaniquement sa puissance. Mais c'est après la Seconde Guerre mondiale que le basculement devient total. Le capitalisme moderne comprend que le bonheur réel est secondaire ; ce qui importe, c'est de maintenir l'homme dans un état de désir permanent. La consommation ne vise plus la satisfaction des besoins, mais l'entretien d'un imaginaire. Ce système repose alors sur une illusion structurelle : faire croire à l'homme que combler ses désirs le rendra heureux, alors même que ces désirs sont artificiellement produits et sans fin."
+        ]
+      },
+      {
+        id: 4,
+        title: "Les contradictions structurelles",
+        url: "contradictions",
+        paragraphs: [
+          "Or, exploiter les vices humains ne peut constituer un projet de civilisation viable. Ce qui peut fonctionner à court terme devient nécessairement destructeur à long terme. Comme un adolescent qui fait de ses excès une identité, la société peut rayonner momentanément, mais elle finit inévitablement par en payer le prix. Le capitalisme, en poussant la logique du désir jusqu'à l'absurde, génère ses propres contradictions : baisse du pouvoir d'achat, dégradation des produits, obsolescence programmée, concentration extrême des richesses.",
+          "Le problème fondamental n'est plus moral, il est structurel. Si les travailleurs ne sont plus suffisamment rémunérés, ils ne peuvent plus consommer. Si personne ne consomme, la production perd son sens. Le système s'étouffe par sa propre logique. La redistribution des richesses n'apparaît donc plus comme une exigence idéologique, mais comme une condition minimale de survie du système lui-même."
+        ]
+      },
+      {
+        id: 5,
+        title: "Vers un dépassement",
+        url: "depassement",
+        paragraphs: [
+          "Nous semblons aujourd'hui entrer dans une phase de mutation. Lentement, l'humanité prend conscience que placer l'économie au centre de la vie est une impasse. Le capitalisme n'a pas échoué parce qu'il serait immoral, mais parce qu'il a choisi de fonder sa prospérité sur l'exploitation des vices humains, sans jamais leur imposer de limites. Il a été un moment nécessaire de l'histoire, peut-être même émancipateur à ses débuts, mais il atteint désormais ses frontières internes. L'histoire n'est pas finie ; elle appelle, une fois encore, à un dépassement."
+        ]
+      }
+    ]
   }
 ]
